@@ -14,8 +14,8 @@ class MissionAdmin(admin.ModelAdmin):
     list_display = ("name", "cat", "is_completed")
     list_filter = ("is_completed",)
     search_fields = ("name", "cat__name")
-    inlines = [TargetInline]  # Mission-ə bağlı target-ləri göstərir
-    actions = ["mark_completed"]  # admin action əlavə etmək istəyirsənsə
+    inlines = [TargetInline]
+    actions = ["mark_completed"]
 
     def mark_completed(self, request, queryset):
         updated = queryset.update(is_completed=True)
